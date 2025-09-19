@@ -1,0 +1,203 @@
+:root {
+    --purple--: #2E2B70;
+    --ligth-purple--: #2e2b70c8;
+    --white--: #fff;
+    --ligth-gray--: #bfbfbf;
+}
+
+/* -------------------- Reset & Base -------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    padding: 0 10px;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: var(--purple--);
+}
+
+/* -------------------- Wrapper -------------------- */
+.wrapper {
+    width: 720px;
+    background: var(--white--);
+    border-radius: 5px;
+}
+
+.wrapper header {
+    font-size: 22px;
+    font-weight: 600;
+    padding: 20px 30px;
+    border-bottom: 1px solid var(--ligth-gray--);
+}
+
+/* -------------------- Form Layout -------------------- */
+.wrapper form {
+    margin: 35px 30px;
+}
+
+form .dbl-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 20px; 
+}
+
+.dbl-field .field {
+    position: relative;
+    width: 100%;
+    height: 50px;
+}
+
+/* -------------------- Inputs & Textarea -------------------- */
+form .field input,
+form .message textarea {
+    width: 100%;
+    border: 1px solid var(--ligth-gray--);
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    padding: 0 18px 0 48px;
+    transition: border-color 0.3s ease;
+}
+
+/* Input height */
+form .field input {
+    height: 50px;
+}
+
+/* Textarea */
+form .message textarea {
+    min-height: 120px;
+    padding: 15px 18px 15px 48px;
+    line-height: 1.5;
+    resize: vertical; 
+    overflow: auto;
+}
+
+/* -------------------- Placeholder Animation -------------------- */
+form .field input::placeholder,
+form .message textarea::placeholder {
+    color: var(--ligth-gray--);
+    transition: 0.3s ease;
+}
+
+form .field input:focus::placeholder,
+form .message textarea:focus::placeholder,
+form .field input:not(:placeholder-shown)::placeholder,
+form .message textarea:not(:placeholder-shown)::placeholder {
+    transform: translateY(-10px);
+    font-size: 12px;
+    color: var(--purple--);
+    opacity: 0.8;
+}
+
+/* -------------------- Focus Effects -------------------- */
+form .field input:focus,
+form .message textarea:focus {
+    border-color: var(--purple--);
+}
+
+.wrapper form i {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    color: var(--ligth-gray--);
+    font-size: 17px;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+form .field input:focus ~ i,
+form .message textarea:focus ~ i {
+    color: var(--purple--);
+}
+
+/* -------------------- Message Section -------------------- */
+form .message {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+form .message i {
+    position: absolute;
+    left: 18px;
+    top: 25px;
+    color: var(--ligth-gray--);
+    font-size: 17px;
+    pointer-events: none;
+}
+
+/* -------------------- Button Area -------------------- */
+form .button-area {
+    margin: 25px 0;
+    display: flex;
+    align-items: center;
+}
+
+.button-area button {
+    font-size: 18px;
+    border: none;
+    background: var(--purple--);
+    color: var(--white--);
+    border-radius: 5px;
+    padding: 13px 25px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.button-area button:hover {
+    background: var(--ligth-purple--);
+}
+
+.button-area span {
+    color: var(--purple--);
+    margin-left: 30px;
+}
+
+/* -------------------- Form Messages -------------------- */
+#form-msg {
+    display: none; 
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+
+/* -------------------- Responsive -------------------- */
+@media(max-width: 600px) {
+    .wrapper header {
+        text-align: center;
+    }
+
+    form .dbl-field {
+        margin-bottom: 0px;
+        flex-direction: column;
+    }
+
+    .dbl-field .field {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .button-area button {
+        width: 100%;
+    }
+
+    form .button-area {
+        flex-direction: column;
+    }
+
+    .button-area span {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    form .message textarea {
+        resize: none;
+    }
+}
